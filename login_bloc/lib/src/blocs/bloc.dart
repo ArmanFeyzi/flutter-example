@@ -10,4 +10,9 @@ class Bloc extends validate{
 
   Stream<String> get email => _emailStream.stream.transform(validateEmail);
   Stream<String> get password => _passwordStream.stream.transform(validatePassword);
+
+  dispose(){
+    _emailStream.close();
+    _passwordStream.close();
+  }
 }
