@@ -8,6 +8,16 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   Widget build(BuildContext context) {
-    
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Animation Project'),
+      ),
+      body: buildAnimation(),
+    );
   }
+
+  Widget buildAnimation(){
+    return null;
+  }
+
 }
