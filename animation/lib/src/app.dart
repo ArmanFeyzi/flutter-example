@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/home.dart';
 
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Animation',
