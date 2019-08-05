@@ -7,12 +7,17 @@ class Home extends StatefulWidget {
   HomeState createState() => HomeState();
 }
 
-class HomeState extends State<Home> {
+class HomeState extends State<Home> with TickerProviderStateMixin {
   Animation<double> catAnimation;
   AnimationController catController;
 
   initState(){
     super.initState();
+
+    catController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
   }
 
   Widget build(BuildContext context) {
