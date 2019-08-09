@@ -48,6 +48,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
             children: <Widget>[
               buildCatAnimation(),
               buildBox(),
+              buildLeftFlap(),
             ],
           ),
         ),
@@ -74,8 +75,16 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
   Widget buildBox() {
     return Container(
       color: Colors.brown,
-      width: 180.0,
-      height: 180.0,
+      width: 200.0,
+      height: 200.0,
+    );
+  }
+
+  Widget buildLeftFlap() {
+    return Container(
+      color: Colors.red,
+      width: 125.0,
+      height: 10.0,
     );
   }
 }
