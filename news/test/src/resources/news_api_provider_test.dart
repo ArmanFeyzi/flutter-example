@@ -18,4 +18,16 @@ void main() {
     // expectition
     expect(ids, [1,2,3,4]);
   });
+
+  test('FetchItem return ItemModel', () async {
+    final newsApi = newsApiProvider();
+    newsApi.client = MockClient((request) async {
+      final itemMap = {'id': 123};
+      return Response(json.encode(itemMap), 200);
+    });
+
+    final item = await newsApi.fetchItem(123);
+
+    expect(item.id, 123);
+  });
 }
