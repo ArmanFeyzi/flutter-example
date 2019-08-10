@@ -5,7 +5,7 @@ import 'package:path/path.dart';
 import '../models/item_model.dart';
 
 
-class newsDbProvier {
+class NewsDbProvier {
   Database db;
 
   init() async {
@@ -18,10 +18,42 @@ class newsDbProvier {
         newDB.execute("""
           CREATE TABLE Items
             (
-              
+              id INTEGER PRIMARY KEY,
+              type TEXT,
+              by TEXT,
+              time INTEGER,
+              text TEXT,
+              parent INTEGER,
+              kids BLOB,
+              dead INTEGER,
+              deleted INTEGER,
+              url TEXT,
+              score INTEGER,
+              title TEXT,
+              descendants INTEGER
             )
         """);
       }
     );
   }
+
+  fetchItem(int id) async {
+    final maps = await db.query(
+      "Items",
+      columns: null,
+      where: "id = ?",
+      whereArgs: [id],
+    );
+
+    if (maps.length > 0 ) {
+      return ItemModel.fromDB(maps.first);
+    }
+
+    return null;
+  }
+
+  addItem(ItemModel item) {
+    return db.insert("Items", item.toMapForDB());
+  }
+
 }

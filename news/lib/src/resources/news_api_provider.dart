@@ -5,7 +5,7 @@ import '../models/item_model.dart';
 
 final _root = 'https://hacker-news.firebaseio.com/v0';
 
-class newsApiProvider {
+class NewsApiProvider {
   Client client = Client();
 
   fetchTopID() async {
