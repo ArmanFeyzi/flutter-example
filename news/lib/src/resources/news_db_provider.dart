@@ -3,10 +3,15 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import '../models/item_model.dart';
+import 'repository.dart';
 
 
-class NewsDbProvier {
+class NewsDbProvier implements Source{
   Database db;
+
+  Future<List<int>> fetchTopIDs(){
+    return null;
+  } 
 
   void init() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
