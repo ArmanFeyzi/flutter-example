@@ -6,7 +6,7 @@ import '../models/item_model.dart';
 import 'repository.dart';
 
 
-class NewsDbProvier implements Source{
+class NewsDbProvier implements Source, Cache{
   Database db;
 
   Future<List<int>> fetchTopIDs(){
