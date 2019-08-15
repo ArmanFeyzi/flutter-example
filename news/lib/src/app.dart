@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/news_list.dart';
 import 'blocs/stories_provider.dart';
+import 'screens/news_detail.dart';
 
 
 class NewsApp extends StatelessWidget {
@@ -8,8 +9,18 @@ class NewsApp extends StatelessWidget {
     return StoriesProvider(
       child: MaterialApp(
         title: 'Beh Nazar',
-        home: NewsList(),
+        onGenerateRoute: (RouteSettings setting){
+          route(setting);
+        },
       ),
     );
   }
+
+  Route route(RouteSettings setting) {
+    return MaterialPageRoute(
+      builder: (BuildContext context) {
+        return NewsList();
+      }
+    );
+}
 }

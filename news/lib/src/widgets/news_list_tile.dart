@@ -27,16 +27,19 @@ class NewsListTile extends StatelessWidget {
               return LoadingWidget();
             }
 
-            return buildTile(itemSnapshot.data);
+            return buildTile(context, itemSnapshot.data);
           },
         ); 
       },
     );
   }
 
-  buildTile(ItemModel item) {
+  buildTile(BuildContext context, ItemModel item) {
     return Card(
       child: ListTile(
+        onTap: () {
+          Navigator.pushNamed(context, '/${item.id}');
+        },
         leading: FlutterLogo(size: 56.0),
         title: Text(item.title),
         subtitle: Text('${item.score} Votes'),
