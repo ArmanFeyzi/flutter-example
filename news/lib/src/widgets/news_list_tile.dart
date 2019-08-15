@@ -26,10 +26,26 @@ class NewsListTile extends StatelessWidget {
               return Text('Fututre Builder still loading $itemId');
             }
 
-            return Text(itemSnapshot.data.title);
+            return buildTile(itemSnapshot.data);
           },
         ); 
       },
+    );
+  }
+
+  buildTile(ItemModel item) {
+    return Card(
+      child: ListTile(
+        leading: FlutterLogo(size: 56.0),
+        title: Text(item.title),
+        subtitle: Text('${item.score} Votes'),
+        trailing: Column(
+          children: <Widget>[
+            Icon(Icons.comment),
+            Text('${item.descendants}'),
+          ],
+        ),
+      ),
     );
   }
 }
