@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 
 
 class NewsDetail extends StatelessWidget {
+  final int itemId;
+
+  NewsDetail({this.itemId});
+
   Widget build(BuildContext context) {
-    return Text('News Detail Page...');
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tejarat News'),
+      ),
+      body: Text('${itemId}'),
+    );
   }
 }

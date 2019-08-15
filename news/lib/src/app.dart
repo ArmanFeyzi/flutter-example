@@ -9,18 +9,28 @@ class NewsApp extends StatelessWidget {
     return StoriesProvider(
       child: MaterialApp(
         title: 'Beh Nazar',
-        onGenerateRoute: (RouteSettings setting){
-          route(setting);
-        },
+        onGenerateRoute: route,
       ),
     );
   }
 
   Route route(RouteSettings setting) {
-    return MaterialPageRoute(
-      builder: (BuildContext context) {
-        return NewsList();
-      }
-    );
+    if (setting.name == '/') {
+      return MaterialPageRoute(
+        builder: (BuildContext context) {
+          return NewsList();
+        }
+      );
+    } else {
+      return MaterialPageRoute(
+        builder: (BuildContext context) {
+          final itemId = int.parse(setting.name.replaceFirst('/', ''));
+          return NewsDetail(
+            itemId: itemId,
+          );
+        }
+      );
+    }
+    
 }
 }
