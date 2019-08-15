@@ -69,6 +69,9 @@ class NewsDbProvier implements Source, Cache{
     );
   }
 
+  Future<int> clear(){
+    return db.delete("Items");
+  }
 }
 
 final newsDbProvier = NewsDbProvier();
